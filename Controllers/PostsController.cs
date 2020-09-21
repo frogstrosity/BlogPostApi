@@ -13,7 +13,9 @@ namespace BlogPostApi.Controllers
     {
         private static readonly Post[] Posts = new[]
         {
-            new Post()
+            new Post() { Title = "Blog post 1" },
+            new Post() { Title = "Blog post 2" },
+
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
