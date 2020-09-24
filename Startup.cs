@@ -26,7 +26,12 @@ namespace BlogPostApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddApiVersioning(o => o.AssumeDefaultVersionWhenUnspecified = true);
+            services.AddApiVersioning(o => 
+            {
+                o.AssumeDefaultVersionWhenUnspecified = true;
+                o.DefaultApiVersion = new ApiVersion(1,0);
+                o.ReportApiVersions = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
