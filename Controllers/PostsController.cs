@@ -15,7 +15,6 @@ namespace BlogPostApi.Controllers
     {
         private static readonly Post[] Posts = new[]
         {
-            //expand these
             new Post() 
             { 
                 Title = "How (not) to Blog",
