@@ -8,7 +8,9 @@ using Microsoft.Extensions.Logging;
 namespace BlogPostApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class PostsController : ControllerBase
     {
         private static readonly Post[] Posts = new[]
