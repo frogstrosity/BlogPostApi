@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using BlogPostApi.Data.Static;
 
 namespace BlogPostApi
 {
@@ -26,6 +27,7 @@ namespace BlogPostApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<StaticPostRepository>();
             services.AddApiVersioning(o => 
             {
                 o.AssumeDefaultVersionWhenUnspecified = true;
