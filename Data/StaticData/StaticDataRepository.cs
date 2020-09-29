@@ -46,6 +46,7 @@ namespace BlogPostApi.Data.Static
         {
             new Post() 
             { 
+                Id = Guid.NewGuid(),
                 Title = "How (not) to Blog",
                 Tagline = "There are a lot of good reasons to blog, this is not one of them",
                 Text = "If I learn to create my own blog and write about that I might fulfill both these goals. It also might just end up being a monstrosity. Either way I hope to learn someting on the way",
@@ -53,6 +54,7 @@ namespace BlogPostApi.Data.Static
             } as TEntity,
             new Post() 
             { 
+                Id = Guid.NewGuid(),
                 Title = "How (not) to Learn React",
                 Tagline = "doing the frontends",
                 Text = "adding basic static layout using components",

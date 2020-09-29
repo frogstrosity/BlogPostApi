@@ -1,7 +1,9 @@
+using System;
+
 namespace BlogPostApi.Data
 {
     public interface IEntity
     {
-        int Id { get; set; }
+        Guid Id { get; set; }
     }
 }
