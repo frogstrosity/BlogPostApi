@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BlogPostApi.Models;
 
@@ -17,9 +18,16 @@ namespace BlogPostApi.Data.Static
             throw new System.NotImplementedException();
         }
 
-        public Task<TEntity> Get(int id)
+        public Task<TEntity> Get(Guid id)
         {
-            throw new System.NotImplementedException();
+            if(typeof(TEntity) == typeof(Post))
+            {
+                return Task.FromResult(Posts.FirstOrDefault(x => x.Id == id));
+            }
+            else
+            {
+                throw new System.NotImplementedException();
+            }
         }
 
         public Task<List<TEntity>> GetAll()
