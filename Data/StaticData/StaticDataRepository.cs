@@ -13,7 +13,7 @@ namespace BlogPostApi.Data.Static
             throw new System.NotImplementedException();
         }
 
-        public Task<TEntity> Delete(int id)
+        public Task<TEntity> Delete(Guid id)
         {
             throw new System.NotImplementedException();
         }
