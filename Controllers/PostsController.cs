@@ -29,7 +29,7 @@ namespace BlogPostApi.Controllers
            return await _repository.GetAll();
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<Post> GetAsync(Guid id)
         {
            return await _repository.Get(id);
