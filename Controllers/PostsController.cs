@@ -30,9 +30,16 @@ namespace BlogPostApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Post> GetAsync(Guid id)
+        public async Task<ActionResult<Post>> GetAsync(Guid id)
         {
-           return await _repository.Get(id);
+           var post = await _repository.Get(id);
+
+           if(post == null)
+           {
+               return NotFound();
+           }
+
+           return post;
         }
     }
 }
