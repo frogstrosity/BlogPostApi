@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using BlogPostApi.Data.Static;
 using BlogPostApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,22 @@ namespace BlogPostApi.Controllers
         }
 
         [HttpGet]
-        public async System.Threading.Tasks.Task<IEnumerable<Post>> GetAsync()
+        public async Task<IEnumerable<Post>> GetAsync()
         {
            return await _repository.GetAll();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Post>> GetAsync(Guid id)
+        {
+           var post = await _repository.Get(id);
+
+           if(post == null)
+           {
+               return NotFound();
+           }
+
+           return post;
         }
     }
 }
