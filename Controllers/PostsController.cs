@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BlogPostApi.Data;
 using BlogPostApi.Data.Static;
 using BlogPostApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +16,9 @@ namespace BlogPostApi.Controllers
     public class PostsController : ControllerBase
     {
         private readonly ILogger<PostsController> _logger;
-        private readonly StaticPostRepository _repository;
+        private readonly IRepository<Post> _repository;
 
-        public PostsController(StaticPostRepository repository, ILogger<PostsController> logger)
+        public PostsController(EfCorePostRepository repository, ILogger<PostsController> logger)
         {
             _logger = logger;
             _repository = repository;

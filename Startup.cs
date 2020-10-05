@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using BlogPostApi.Data.Static;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogPostApi
 {
@@ -28,6 +29,11 @@ namespace BlogPostApi
         {
             services.AddControllers();
             services.AddScoped<StaticPostRepository>();
+            services.AddScoped<EfCorePostRepository>();
+
+            services.AddDbContext<PostContext>(opt =>
+               opt.UseInMemoryDatabase("BlogPosts"));
+
             services.AddApiVersioning(o => 
             {
                 o.AssumeDefaultVersionWhenUnspecified = true;
