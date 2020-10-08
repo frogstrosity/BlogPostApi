@@ -18,7 +18,7 @@ namespace BlogPostApi.Tests
         {
             var repository = new Mock<EfCorePostRepository>();
 
-            // repository.Setup(x => x.GetAll()).Returns(Task.FromResult(new List<Post>()));
+            repository.Setup(x => x.GetAll()).Returns(Task.FromResult(new List<Post>()));
 
             var logger = new Mock<ILogger<PostsController>>();
 
